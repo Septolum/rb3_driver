@@ -87,6 +87,8 @@ Once you have those in place (and your C compiler/build system obviously!),
 just type "make".  (I think this may require GNU make - if it doesn't work, it
 should be simple enough to adapt the Makefile.)
 
+For linux, install `libusb-1.0-0-dev` and `libportmidi-dev`, and run the binary as sudo (i.e. `sudo ./rb3_driver`)
+
 
 How much of the keytar's functionality is implemented?
 ------------------------------------------------------
