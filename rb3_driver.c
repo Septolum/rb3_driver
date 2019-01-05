@@ -382,8 +382,10 @@ int main(int argc, char **argv) {
                         value = curBuffer[MOD_OFFSET] - 1;
                         Pm_WriteShort(outStream, 0,
                             Pm_Message(MIDI_PBEND, 0, value));
-                    }
-                } else {
+                    } else {
+                        Pm_WriteShort(outStream, 0,
+                            Pm_Message(MIDI_PBEND, 0, value));
+                }} else {
                     // Modulation
                     if (curBuffer[MOD_OFFSET] != 0) {
                         Pm_WriteShort(outStream, 0,
