@@ -14,14 +14,14 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLwAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  * 
  */
 
-#include <libusb.h>
+#include <libusb-1.0/libusb.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -234,6 +234,7 @@ int main(int argc, char **argv) {
     }
     my_atexit(myusb_close, h);
 
+    libusb_detach_kernel_driver(h, interface_number);
     r = libusb_claim_interface(h, interface_number);
     if (r < 0) {
         fprintf(stderr, "Failed to claim input device interface\n");
